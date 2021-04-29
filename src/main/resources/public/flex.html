@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap4 Flex(弹性)布局示例</title>
+    <style type="text/css">
+        .bg{
+            display: flex;
+            display: -webkit-flex;
+            margin-bottom: 50px;
+        }
+        .bg div{
+            width: 50px;
+            width: 60px;
+            text-align: center;
+        }
+        .bg1 {
+            flex-direction: row;
+        }
+        .bg2 {
+            flex-direction: column;
+        }
+        .bg3{
+            flex-direction: row-reverse;
+        }
+        .bg4{
+            flex-direction: column-reverse;
+        }
+    </style>
+</head>
+<body>
+    <h1>FLex弹性布局</h1>
+    div>row</div>
+    <div class='bg bg1'>
+        <div style="background:red">1</div>
+        <div style='background:green'>2</div>
+        <div style='background:gold'>3</div>
+    </div>
+
+    <div>column</div>
+    <div class='bg bg2'>
+        <div style="background:red">1</div>
+        <div style='background:green'>2</div>
+        <div style='background:gold'>3</div>
+    </div>
+
+
+    <div>row-reverse</div>
+    <div class='bg bg3'>
+        <div style="background:red">1</div>
+        <div style='background:green'>2</div>
+        <div style='background:gold'>3</div>
+    </div>
+
+    <div>column-reverse</div>
+    <div class='bg bg4'>
+        <div style="background:red">1</div>
+        <div style='background:green'>2</div>
+        <div style='background:gold'>3</div>
+    </div>
+</body>
+</html>

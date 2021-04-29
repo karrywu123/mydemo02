@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>添加系统账号</title>
+    <script type="text/javascript" data-main="/jscustom/security/AddSysUser.js" src="https://cdn.bootcss.com/require.js/2.3.6/require.min.js"></script>
+</head>
+<body>
+    <div class="container" style="margin-top: 20px">
+        <!--表单_新增账号-->
+        <form class="form-horizontal" id="FormSysUser" method="post" style="margin: 5px;">
+            <div class="form-group row">
+                <label class="col-md-4 col-sm-4 text-right" for="username"><span class="text-danger">*</span>账户名称：</label>
+                <div class="col-md-6 col-sm-6">
+                    <input class="form-control"  type="text" id="username" name="username" placeholder="" required="required">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-4 col-sm-4 text-right" for="password"><span class="text-danger">*</span>账户密码：</label>
+                <div class="col-md-6 col-sm-6">
+                    <input class="form-control"  type="password" id="password" name="password" placeholder="密码长度不小于6位" required="required">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-4 col-sm-4 text-right" for="useremail"><span class="text-danger">*</span>电子邮箱：</label>
+                <div class="col-md-6 col-sm-6">
+                    <input class="form-control"  type="email" id="useremail" name="useremail" placeholder="如：service@163.com" required="required">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-4 col-sm-4 text-right" for="usermobile"><span class="text-danger">*</span>用户手机：</label>
+                <div class="col-md-6 col-sm-6">
+                    <input class="form-control"  type="text" id="usermobile" name="usermobile" placeholder="如：18155667788" required="required">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-4 col-sm-4 text-right" for="sysroleid">角 色：</label>
+                <div class="col-md-6 col-sm-6">
+                    <select class="form-control" name="sysroleid" id="sysroleid" required="required"></select>
+                </div>
+            </div>
+
+            <div class="ln_solid"></div>
+
+            <div class="form-group row">
+                <div class="col-sm-6 text-right">
+                    <button type="reset" class="btn btn-primary">重 置</button>
+                </div>
+                <div class="col-sm-6 text-left">
+                    <button id="btn_Save" type="button" class="btn btn-success">提 交</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

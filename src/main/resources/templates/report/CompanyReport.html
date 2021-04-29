@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>公司业务报表</title>
+    <script type="text/javascript" data-main="/jscustom/report/CompanyReport.js" src="https://cdn.bootcss.com/require.js/2.3.6/require.min.js"></script>
+</head>
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <div class="col-md-3 left_col">
+            <div class="left_col scroll-view">
+                <div class="navbar nav_title" style="border: 0;">
+                    <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
+                </div>
+                <div class="clearfix"></div>
+                <div th:include="common::commonNav"></div>
+            </div>
+        </div>
+        <div th:include="common::commonTop"></div>
+
+        <!-- 这里放我们的内容 -->
+        <div class="right_col" role="main">
+            <div class="clearfix"></div>
+
+            <!--工具按钮-->
+            <div class="row">
+                <div class="col-md-6 text-left">
+                    <button style="margin-right: 10px" id="btn_ExportExcel" type="button" class="btn btn-outline btn-info btn-sm">
+                        <i class="fa fa-file-excel-o"></i> 导出Excel
+                    </button>
+                </div>
+            </div>
+
+            <!--显示报表-->
+            <div id="myreport"></div>
+
+        </div>
+        <!-- /这里放我们的内容-->
+
+    </div>
+</div>
+</body>
+</html>

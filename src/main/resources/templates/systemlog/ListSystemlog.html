@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>系统日志</title>
+    <script type="text/javascript" data-main="/jscustom/systemlog/ListSystemlog.js" src="https://cdn.bootcss.com/require.js/2.3.6/require.min.js"></script>
+</head>
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <div class="col-md-3 left_col">
+            <div class="left_col scroll-view">
+                <div class="navbar nav_title" style="border: 0;">
+                    <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
+                </div>
+                <div class="clearfix"></div>
+                <div th:include="common::commonNav"></div>
+            </div>
+        </div>
+        <div th:include="common::commonTop"></div>
+
+        <!-- 这里放我们的内容 -->
+        <div class="right_col" role="main">
+            <div class="clearfix"></div>
+
+            <span class="text-mute"><strong>公司管理 > 公司列表</strong></span>
+
+            <div class="row" style="margin: 1px;padding: 1px">
+                <!--查询条件-->
+                <div CLASS="col-md-12">
+                    <form class="form-inline  pull-right">
+                        <label for="username">账号名称：</label>
+                        <input type="text" class="form-control input-sm" id="username" name="username" placeholder="如：admin" style="width: 140px;margin-right: 15px">
+
+                        <label for="operatedesc">操作简述：</label>
+                        <input type="text" class="form-control input-sm" id="operatedesc" name="operatedesc" placeholder="支持关键字查询" style="width: 200px;margin-right: 15px">
+
+                        <label for="operatetype">操作类型：</label>
+                        <select class="form-control" id="operatetype">
+                            <option value="全部">全部</option>
+                            <option value="查询">查询</option>
+                            <option value="登录">登录</option>
+                            <option value="新增">新增</option>
+                            <option value="修改">修改</option>
+                            <option value="删除">删除</option>
+                            <option value="删除">其它</option>
+                        </select>&nbsp;&nbsp;&nbsp;&nbsp;
+
+                        <button type="button" class="btn btn-secondary btn-sm" id="btnSearch">
+                            <i class="fa fa-search"></i> 查 询
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+
+
+            <!--数据列表-->
+            <div class="row">
+                <div class="col-md-12">
+                    <table id="tb_Systemlog" style="cursor: pointer"></table>
+                </div>
+            </div>
+
+        </div>
+        <!-- /这里放我们的内容-->
+
+    </div>
+</div>
+</body>
+</html>

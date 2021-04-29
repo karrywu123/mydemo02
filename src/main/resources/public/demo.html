@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <title>Title</title>
+</head>
+<body>
+<div class="container-fluid">
+    <!--网格系统-->
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 bg-info">
+            <h1>第一行第一列</h1>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 bg-success">
+            <h1>第一行第二列</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 bg-secondary">
+            <h1>第二行第一列</h1>
+        </div>
+        <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 bg-warning">
+                    <h4>第二行第二列嵌套：第一行第一列</h4>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 bg-primary">
+                    <h4>第二行第二列嵌套：第一行第二列</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-danger">
+                    <h4>第二行第二列嵌套：第二行</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--文字颜色和背景颜色-->
+    <p class="text-muted">柔和的文本</p>
+    <p class="text-primary">重要的文本。</p>
+    <p class="text-success">执行成功的文本。</p>
+    <p class="text-info">代表一些提示信息的文本。</p>
+    <p class="text-warning">警告文本。</p>
+    <p class="text-danger">危险操作文本。</p>
+    <p class="text-secondary">副标题。</p>
+    <p class="text-dark">深灰色文字。</p>
+    <p class="text-light">浅灰色文本（白色背景上看不清楚）。</p>
+    <p class="text-white">白色文本（白色背景上看不清楚）。</p>
+
+    <p class="bg-primary">重要的背景颜色</p>
+    <p class="bg-success text-white">执行成功背景颜色。</p>
+    <p class="bg-info text-white">信息提示背景颜色。</p>
+    <p class="bg-warning text-white">警告背景颜色</p>
+    <p class="bg-danger text-white">危险背景颜色。</p>
+    <p class="bg-secondary text-white">副标题背景颜色。</p>
+    <p class="bg-dark text-white">深灰背景颜色。</p>
+    <p class="bg-light text-dark">浅灰背景颜色。</p>
+    
+    <!--表格-->
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>籍贯</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>张三</td>
+                <td class="table-success">28</td>
+                <td>四川</td>
+            </tr>
+            <tr class="table-danger">
+                <td>李四</td>
+                <td>32</td>
+                <td>湖南</td>
+            </tr>
+            <tr>
+                <td>王五</td>
+                <td>23</td>
+                <td>山东</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!--按钮-->
+    <div style="margin: 20px">
+        <button type="button" class="btn">基本按钮</button>
+        <button type="button" class="btn btn-primary btn-sm">主要按钮</button>
+        <button type="button" class="btn btn-secondary btn-sm">次要按钮</button>
+        <button type="button" class="btn btn-success btn-sm">成功</button>
+        <button type="button" class="btn btn-info btn-sm">信息</button>
+        <button type="button" class="btn btn-warning btn-sm">警告</button>
+        <button type="button" class="btn btn-danger btn-sm">危险</button>
+        <button type="button" class="btn btn-dark btn-sm">黑色</button>
+        <button type="button" class="btn btn-light btn-sm">浅色</button>
+        <button type="button" class="btn btn-link btn-sm">链接</button>
+    </div>
+
+    <!--按钮设置边框-->
+    <div style="margin: 20px">
+        <button type="button" class="btn btn-outline-primary btn-sm">主要按钮</button>
+        <button type="button" class="btn btn-outline-secondary btn-sm">次要按钮</button>
+        <button type="button" class="btn btn-outline-success btn-sm">成功</button>
+        <button type="button" class="btn btn-outline-info btn-sm">信息</button>
+        <button type="button" class="btn btn-outline-warning btn-sm">警告</button>
+        <button type="button" class="btn btn-outline-danger btn-sm">危险</button>
+        <button type="button" class="btn btn-outline-dark btn-sm">黑色</button>
+        <button type="button" class="btn btn-outline-light text-dark btn-sm">浅色</button>
+    </div>
+
+    <!--表单-->
+    <form action="" method="post" role="form">
+        <table class="table table-hover">
+            <tbody>
+            <tr>
+                <td class="text-right" style="vertical-align: middle !important;">账号:</td>
+                <td class="text-left">
+                    <input type="text" name="myname" id="myname" class="form-control" value="" placeholder="字母和数字的结合" required="required">
+                </td>
+            </tr>
+            <tr>
+                <td class="text-right" style="vertical-align: middle !important;">邮 箱:</td>
+                <td class="text-left">
+                    <input type="email" name="myemail" id="myemail" class="form-control" value="" required="required" style="width: 140px">
+                </td>
+            </tr>
+            <tr>
+                <td class="text-right" style="vertical-align: middle !important;">性 别:</td>
+                <td class="text-left">
+                    <label class="radio-inline"><input type="radio" checked name="sextype" value="男">男</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label class="radio-inline"><input type="radio" name="sextype" value="女">女</label>
+                </td>
+            </tr>
+            <tr>
+                <td class="text-right" style="vertical-align: middle !important;">爱 好:</td>
+                <td class="text-left form-check form-check-inline">
+                    <label><input type="checkbox" name="myhobby" class="form-check-input" value="">旅游</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label><input type="checkbox" name="myhobby" class="form-check-input" value="">游泳</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label><input type="checkbox" name="myhobby" class="form-check-input" value="">登山</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td class="text-right" style="vertical-align: middle !important;">职 业:</td>
+                <td class="text-left">
+                    <select class="form-control" id="myjob">
+                        <option>JAVA程序员</option>
+                        <option>精算师</option>
+                        <option>销售员</option>
+                        <option>UI设计师</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="text-center">
+                    <button type="submit" class="btn btn-primary">提 交</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+
+    <!--导航控件-->
+    <ul class="nav flex-column">
+        <li class="nav-item">
+            <a class="nav-link" href="#">新闻</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">社会</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">科技</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link " href="#">历史</a>
+        </li>
+    </ul>
+
+    <!--下拉菜单-->
+    <div style="margin: 20px;height: 300px">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+            我是下拉菜单
+        </button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">子菜单1</a>
+            <a class="dropdown-item" href="#">子菜单2</a>
+            <a class="dropdown-item" href="#">子菜单3</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">子菜单4</a>
+        </div>
+    </div>
+
+    <!--卡片控件-->
+    <div class="card" style="margin: 20px">
+        <div class="card-header bg-info text-white">头部标题</div>
+        <div class="card-body">
+            <h4>系统功能如下</h4>
+            <ul class="list-group">
+                <li class="list-group-item">用户管理</li>
+                <li class="list-group-item">操作日志</li>
+                <li class="list-group-item">数据统计</li>
+                <li class="list-group-item">角色权限</li>
+                <li class="list-group-item">业务报表</li>
+            </ul>
+        </div>
+        <div class="card-footer">底部信息</div>
+    </div>
+
+    <!--徽章-->
+    <div style="margin: 20px">
+        <h3>各种颜色类型的徽章</h3>
+        <span class="badge badge-primary">主要</span>
+        <span class="badge badge-pill badge-secondary">次要</span>
+        <span class="badge badge-pill badge-success">成功</span>
+        <span class="badge badge-danger">危险</span>
+        <span class="badge badge-warning">警告</span>
+        <span class="badge badge-info">信息</span>
+        <span class="badge badge-light">浅色</span>
+        <span class="badge badge-dark">深色</span>
+
+        <h2>徽章嵌入到按钮内</h2>
+        <button type="button" class="btn btn-primary">
+            Messages <span class="badge badge-light">4</span>
+        </button>
+    </div>
+
+    <!--font-awewsome图标-->
+    <div style="margin: 20px">
+        <button type="button" class="btn btn-sm btn-info"> <i class="fa fa-bath"></i> 添 加 </button>
+        <button type="button" class="btn btn-sm btn-warning"><i class="fa fa-pencil-square"></i> 修 改 </button>
+        <button type="button" class="btn btn-sm btn-danger"> <i class="fa fa-remove"></i> 删 除 </button>
+    </div>
+
+</div>
+</body>
+</html>

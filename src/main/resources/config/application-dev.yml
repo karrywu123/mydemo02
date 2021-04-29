@@ -1,0 +1,62 @@
+server:
+  port: 8999
+
+logging:
+  level:
+    root: info #系统的日志级别
+    com.jcj.mydemo: debug #具体工程的日志级别
+  file:
+    name: logs/server.log
+
+    #注意：数据库要预先建立好，因为hibernate只会建表，不会建库
+    #update：表示自动根据model对象来更新表结构，启动hibernate时会自动检查数据库，如果缺少表，则自动建表；如果表里缺少列，则自动添加列。
+    #create：启动hibernate时，自动删除原来的表，新建所有的表，所以每次启动后的以前数据都会丢失。
+    #create-drop：启动hibernate时，自动创建表，程序关闭时，自动把相应的表都删除。所以程序结束时，表和数据也不会再存在。
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/spring?serverTimezone=UTC&useSSL=false
+    username: spring
+    password: "123456"
+    #Druid数据源配置
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initial-size: 5 #初始化时建立物理连接的个数
+      min-idle: 5 #最小连接池数量
+      maxActive: 20 #最大连接池数量
+      maxWait: 60000 #获取连接时最大等待时间，单位毫秒
+      timeBetweenEvictionRunsMillis: 60000 #配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      minEvictableIdleTimeMillis: 300000 #配置一个连接在池中最小生存的时间，单位是毫秒
+      validationQuery: SELECT 1 #用来检测连接是否有效的sql
+      testWhileIdle: true #申请连接的时候检测，如果空闲时间大于timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效
+      testOnBorrow: false #申请连接时执行validationQuery检测连接是否有效，如果为true会降低性能
+      testOnReturn: false #归还连接时执行validationQuery检测连接是否有效，如果为true会降低性能
+      poolPreparedStatements: true # 打开PSCache，并且指定每个连接上PSCache的大小
+      maxPoolPreparedStatementPerConnectionSize: 20 #要启用PSCache，必须配置大于0，当大于0时，poolPreparedStatements自动触发修改为true。在Druid中，不会存在Oracle下PSCache占用内存过多的问题，可以把这个数值配置大一些，比如说100
+      filters: stat,wall,slf4j #配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+      #通过connectProperties属性来打开mergeSql功能；慢SQL记录
+      connectionProperties: druid.stat.mergeSql\=true;druid.stat.slowSqlMillis\=5000
+      # 配置DruidStatFilter，用于采集web-jdbc关联监控的数据
+      web-stat-filter:
+        enabled: true
+        url-pattern: "/*"
+        #排除一些不必要的url过滤
+        exclusions: "*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*"
+      # 配置DruidStatViewServlet
+      stat-view-servlet:
+        url-pattern: "/druid/*"
+        # IP白名单(没有配置或者为空，则只能在本地访问)
+        allow: 127.0.0.1,192.168.11.0/24
+        # IP黑名单 (存在共同时，deny优先于allow)
+        deny: 192.168.1.73
+        #  禁用HTML页面上的“Reset All”功能
+        reset-enable: false
+        # 可视化界面，登录名
+        login-username: admin
+        # 可视化界面，登录密码
+        login-password: admin123456

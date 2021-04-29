@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>角色权限管理</title>
+    <script type="text/javascript" data-main="/jscustom/security/ListUserRoleAuth.js" src="https://cdn.bootcss.com/require.js/2.3.6/require.min.js"></script>
+</head>
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <div class="col-md-3 left_col">
+            <div class="left_col scroll-view">
+                <div class="navbar nav_title" style="border: 0;">
+                    <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
+                </div>
+                <div class="clearfix"></div>
+                <div th:include="common::commonNav"></div>
+            </div>
+        </div>
+        <div th:include="common::commonTop"></div>
+
+        <!-- 这里放我们的内容 -->
+        <div class="right_col" role="main">
+            <div class="clearfix"></div>
+
+            <!--增加角色，用于弹出层-->
+            <div id="addrolediv" style="display: none;margin: 15px">
+                <form role="form" class="form-horizontal" id="FormSysRole" method="post">
+                    <div class="form-group row" style="margin-bottom: 30px">
+                        <label for="rolename">角色名称：</label>
+                        <input type="text" name="rolename" id="rolename" class="form-control" placeholder="不允许与已有的重名" style="width: 180px">
+                    </div>
+                    <div class="form-group row" style="margin-bottom: 30px">
+                        <label for="roledesc">角色描述：</label>
+                        <input type="text" name="roledesc" id="roledesc" class="form-control" placeholder="长度不超过200字" style="width: 200px">
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-12 text-center">
+                            <button id="btn_SaveRole" type="button" class="btn btn-success">提 交</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!--增加权限，用于弹出层-->
+            <div id="addauthdiv" style="display: none;margin: 15px">
+                <form role="form" class="form-horizontal" id="FormSysAuth" method="post">
+                    <div class="form-group row" style="margin-bottom: 30px">
+                        <label for="authname">权限名称：</label>
+                        <input type="text" name="authname" id="authname" class="form-control" placeholder="不允许与已有的重名" style="width: 180px">
+                    </div>
+                    <div class="text-center">
+                        <button id="btn_SaveAuth" type="button" class="btn btn-w-m btn-primary" >保 存</button>
+                    </div>
+                </form>
+            </div>
+
+            <!--页面整体布局：一行两列，第一列四行，分别对应账号和角色，第二列放权限树-->
+            <div class="row">
+                <div class="col-md-7">
+
+                    <!--账号区域-->
+                    <div class="row">
+                        <div class="col-md-6 text-left"><h5>系统账号</h5></div>
+                        <div sec:authorize="hasAuthority('系统管理_账号角色权限_新增账号')" class="col-md-6 text-right">
+                            <button style="margin-right: 10px" id="btn_addUser" type="button" class="btn btn-outline btn-info btn-sm">
+                                <i class="fa fa-plus"></i> 新增账号
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table id="tb_SysUser" style="cursor: pointer"> </table>
+                        </div>
+                    </div>
+
+                    <!--角色区域-->
+                    <div class="row">
+                        <div class="col-md-6 text-left"><h5>系统角色</h5></div>
+                        <div class="col-md-6 text-right">
+                            <button sec:authorize="hasAuthority('系统管理_账号角色权限_新增角色')" style="margin-right: 10px" id="btn_addRole" type="button" class="btn btn-outline btn-info btn-sm">
+                                <i class="fa fa-plus"></i> 新增角色
+                            </button>
+                            <button sec:authorize="hasAuthority('系统管理_账号角色权限_删除角色')" style="margin-right: 10px" id="btn_deleteRole" type="button" class="btn btn-outline btn-danger btn-sm">
+                                <i class="fa fa-close"></i> 删除角色
+                            </button>
+                            <button sec:authorize="hasAuthority('系统管理_账号角色权限_分配权限')" style="margin-right: 10px" id="btn_assignRole" type="button" class="btn btn-outline btn-warning btn-sm">
+                                <i class="fa fa-gears"></i> 分配权限
+                            </button>
+
+                        </div>
+                    </div>
+                    <div class="row" style="margin: 2px">
+                        <div class="col-md-12" style="border-style:solid;border-width:1px;border-color:#DCDCDC;height: 200Px;padding: 10px">
+                            <label th:each="sysRole,iterStat:${sysRoles}" style="margin-right: 20px;display:inline-block;color: #0d8ddb">
+                                <input type="radio" name="radiorole" value="" th:disabled="${sysRole.rolename=='超级管理员'}?true:false" th:value="${sysRole.uuid}" th:text="${sysRole.rolename}">
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-5">
+                    <!--权限树区域-->
+                    <div class="row">
+                        <div class="col-md-2 text-left">
+                            <h5>系统权限</h5>
+                            <input  id="nowid" type="hidden" value="无">
+                            <input  id="nowpid" type="hidden" value="无">
+                            <input  id="nowname" type="hidden" value="无">
+                        </div>
+                        <div class="col-md-10 text-right">
+                            <button sec:authorize="hasAuthority('系统管理_账号角色权限_新增一级权限')" style="margin-right: 10px" id="btn_addMainAuth" type="button" class="btn btn-outline btn-warning btn-sm">
+                                <i class="fa fa-plus"></i>  新增一级权限
+                            </button>
+                            <button sec:authorize="hasAuthority('系统管理_账号角色权限_新增子权限')"  style="margin-right: 10px" id="btn_addAuth" type="button" class="btn btn-outline btn-info btn-sm">
+                                <i class="fa fa-plus"></i>  新增子权限
+                            </button>
+                            <button sec:authorize="hasAuthority('系统管理_账号角色权限_删除权限')" style="margin-right: 10px" id="btn_deleteAuth" type="button" class="btn btn-outline btn-danger btn-sm">
+                                <i class="fa fa-close"></i>  删除权限
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-right: 2px">
+                        <div class="col-md-12" style="border-style:solid;border-width:1px;border-color:#DCDCDC">
+                            <ul id="AuthTree" class="ztree" ></ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- /这里放我们的内容-->
+
+    </div>
+</div>
+</body>
+</html>

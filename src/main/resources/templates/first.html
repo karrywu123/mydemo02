@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common::commonHeader('填写你的title')">
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <div class="col-md-3 left_col">
+            <div class="left_col scroll-view">
+                <div class="navbar nav_title" style="border: 0;">
+                    <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
+                </div>
+                <div class="clearfix"></div>
+                <div th:include="common::commonNav"></div>
+            </div>
+        </div>
+        <div th:include="common::commonTop"></div>
+
+        <!-- 这里放我们的内容 -->
+        <div class="right_col" role="main">
+            <h1>Hello World</h1>
+        </div>
+        <!-- /这里放我们的内容-->
+
+    </div>
+</div>
+<div th:include="common::commonJS" th:remove="tag"></div>
+</body>
+</html>

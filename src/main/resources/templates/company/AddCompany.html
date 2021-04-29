@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>页面标题</title>
+    <script type="text/javascript" data-main="/jscustom/company/AddCompany.js" src="https://cdn.bootcss.com/require.js/2.3.6/require.min.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <!--表单_新增公司-->
+        <form class="form-horizontal" id="form_Company" method="post" style="margin: 5px">
+            <div class="form-group row">
+                <label class="col-md-3 col-sm-3 text-right" for="comname"><span class="text-danger">*</span>公司名称：</label>
+                <div class="col-md-9 col-sm-9">
+                    <input class="form-control"  type="text" id="comname" name="comname" placeholder="填写公司全称" required="required">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-3 col-sm-3 text-right" for="comaddress"><span class="text-danger">*</span>公司地址：</label>
+                <div class="col-md-9 col-sm-9">
+                    <input class="form-control"  type="text" id="comaddress" name="comaddress" placeholder="填写详细地址" required="required">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-3 col-sm-3 text-right" for="comurl"><span class="text-danger">*</span>公司网站：</label>
+                <div class="col-md-9 col-sm-9">
+                    <input class="form-control"  type="url" id="comurl" name="comurl" placeholder="如：http://www.baidu.com" required="required">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-3 col-sm-3 text-right" for="comtelephone"><span class="text-danger">*</span>公司座机：</label>
+                <div class="col-md-9 col-sm-9">
+                    <input class="form-control"  type="tel" id="comtelephone" name="comtelephone" placeholder="如：010-82770788" required="required">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-3 col-sm-3 text-right" for="establishdate">成立时间：</label>
+                <div class="col-md-9 col-sm-9">
+                    <input class="form-control"  type="text" id="establishdate" name="establishdate" placeholder="如：2005-07">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-3 col-sm-3 text-right" for="employeenumber">员工人数：</label>
+                <div class="col-md-9 col-sm-9">
+                    <input class="form-control"  type="digits" id="employeenumber" name="employeenumber" placeholder="如：200">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-3 col-sm-3 text-right" for="totaloutput">总产值(万元)：</label>
+                <div class="col-md-9 col-sm-9">
+                    <input class="form-control"  type="number" id="totaloutput" name="totaloutput" placeholder="如：128.0000">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-3 col-sm-3 text-right" for="comdesc">公司简介：</label>
+                <div class="col-md-9 col-sm-9">
+                    <textarea  class="form-control" rows="2" id="comdesc" name="comdesc" placeholder="简要的描述公司状况"></textarea>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-3 col-sm-3 text-right" for="comstatus">运营装填：</label>
+                <div class="col-md-9 col-sm-9">
+                    <select class="form-control" id="comstatus" name="comstatus">
+                        <option value="正常运营">正常运营</option>
+                        <option value="正在注销">正在注销</option>
+                        <option value="已经注销">已经注销</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-3 col-sm-3 text-right" for="contactname"><span class="text-danger">*</span>联系人姓名：</label>
+                <div class="col-md-9 col-sm-9">
+                    <input class="form-control"  type="text" id="contactname" name="contactname" placeholder="" required="required">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-3 col-sm-3 text-right" for="contactmobile"><span class="text-danger">*</span>联系人手机号：</label>
+                <div class="col-md-9 col-sm-9">
+                    <input class="form-control"  type="tel" id="contactmobile" name="contactmobile" placeholder="" required="required">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-3 col-sm-3 text-right" for="contactemail"><span class="text-danger">*</span>联系人邮箱：</label>
+                <div class="col-md-9 col-sm-9">
+                    <input class="form-control"  type="email" id="contactemail" name="contactemail" placeholder="" required="required">
+                </div>
+            </div>
+
+            <div class="upload" id="case" name="case" action="/CompanyModule/upload" data-num="3" data-type="jpg,doc,pdf,docx" data-size="10240" data-value=""></div>
+
+            <div class="ln_solid"></div>
+            <div class="form-group row">
+                <div class="col-sm-6 text-right">
+                    <button type="reset" class="btn btn-primary">重 置</button>
+                </div>
+                <div class="col-sm-6 text-left">
+                    <button id="btn_Save" type="button" class="btn btn-success">提 交</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
