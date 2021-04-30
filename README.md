@@ -102,19 +102,18 @@ public class DemoApplication {
 注释UserRoleAuthCtl.java
 这两段
 
- @PostMapping("/listuser")
-    @ResponseBody
-    //@AOPLog(operatetype="查询",operatedesc="浏览了一下账号列表")  注释这里
-    public String queryDynamic(@RequestBody Map<String,Object> reqMap)
-    {
+@PostMapping("/listuser")
+@ResponseBody
+//@AOPLog(operatetype="查询",operatedesc="浏览了一下账号列表")  注释这里
+public String queryDynamic(@RequestBody Map<String,Object> reqMap)
+{
 
 
-
-    //保存系统账户
-    @RequestMapping("/saveSysUser")
-    @ResponseBody
-//    @AOPLog(operatetype="新增",operatedesc="添加了一个系统账号") 注释这里
-    public String saveSysUser(SysUser sysUser)
+//保存系统账户
+@RequestMapping("/saveSysUser")
+@ResponseBody
+//@AOPLog(operatetype="新增",operatedesc="添加了一个系统账号") 注释这里
+public String saveSysUser(SysUser sysUser)
     {
         sus.save(sysUser);
         return "OK";
