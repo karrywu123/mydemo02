@@ -98,13 +98,16 @@ public class DemoApplication {
             <groupId>org.thymeleaf.extras</groupId>
             <artifactId>thymeleaf-extras-springsecurity5</artifactId>
         </dependency>
+ 
 注释UserRoleAuthCtl.java
 这两段
+
  @PostMapping("/listuser")
     @ResponseBody
     //@AOPLog(operatetype="查询",operatedesc="浏览了一下账号列表")  注释这里
     public String queryDynamic(@RequestBody Map<String,Object> reqMap)
     {
+
 
 
     //保存系统账户
